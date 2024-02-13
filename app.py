@@ -1,52 +1,84 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for, session
-from openpyxl import Workbook, load_workbook
+import openpyxl
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24)  # Set a secret key for session management
+app.secret_key = os.urandom(24)
 
-# Route to serve the HTML form
-@app.route('/')
-def index():
-    if 'feedback_submitted' in session:
-        return redirect(url_for('feedback_submitted'))
-    return render_template('index.html')
-
-# Route to handle form submission and store data in Excel sheet
-@app.route('/submit-feedback', methods=['POST'])
-def submit_feedback():
-    if 'feedback_submitted' in session:
-        return redirect(url_for('feedback_submitted'))
-    
-    name = request.form['name']
-    roll_number = request.form['rollNumber']
-    branch = request.form['branch']
-    answers = [request.form[f'q{i}'] for i in range(1, 10)]
-
-    # Load workbook and select active sheet
+def save_to_excel(data, sheet_name):
+    # Load the existing workbook or create a new one
     try:
-        wb = load_workbook('feedback.xlsx')
-        ws = wb.active
+        wb = openpyxl.load_workbook('feedback_data.xlsx')
     except FileNotFoundError:
-        # If file doesn't exist, create a new workbook
-        wb = Workbook()
-        ws = wb.active
-        ws.append(['Name', 'Roll Number', 'Branch', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9'])
+        wb = openpyxl.Workbook()
 
-    # Append data to the worksheet
-    ws.append([name, roll_number, branch] + answers)
+    # Select the active sheet (create a new one if it doesn't exist)
+    if sheet_name in wb.sheetnames:
+        sheet = wb[sheet_name]
+    else:
+        sheet = wb.create_sheet(title=sheet_name)
+
+    # Insert the date in the first row
+    date = data['Date']
+
+    # Check if the sheet is empty or if the title row is missing
+    if sheet.max_row == 0 or sheet.cell(row=1, column=1).value != 'Date':
+        sheet.insert_rows(1)
+        sheet.cell(row=1, column=1, value='Date')
+        for idx, key in enumerate(data.keys(), start=2):
+            sheet.cell(row=1, column=idx, value=key)
+
+    # Find the next empty row
+    next_row = sheet.max_row + 1
+
+    # Insert date value
+    sheet.cell(row=next_row, column=1, value=date)
+
+    # Insert data values
+    for idx, value in enumerate(data.values(), start=2):
+        sheet.cell(row=next_row, column=idx, value=value)
 
     # Save the workbook
-    wb.save('feedback.xlsx')
+    wb.save('feedback_data.xlsx')
 
-    # Mark feedback as submitted in session to prevent resubmission from the same device
-    session['feedback_submitted'] = True
 
-    return redirect(url_for('feedback_submitted'))
+@app.route('/')
+def index():
+    return render_template('curriculum.html')
 
-# Route to display success message after feedback submission
-@app.route('/feedback-submitted')
-def feedback_submitted():
+@app.route('/library-feedback', methods=['GET', 'POST'])
+def library_feedback():
+    if request.method == 'POST':
+        # Process form data and store it
+        return redirect('/success')  
+    return render_template('library.html') 
+
+@app.route('/submit-curriculum-feedback', methods=['POST'])
+def submit_curriculum_feedback():
+    curriculum_data = request.form
+    save_to_excel(curriculum_data, 'Curriculum Feedback')
+    return redirect('/library-feedback')
+
+@app.route('/ambience-feedback', methods=['GET', 'POST'])
+def ambience_feedback():
+    if request.method == 'POST':
+        return redirect('/success')  
+    return render_template('ambience.html') 
+
+@app.route('/submit-library-feedback', methods=['POST'])
+def submit_library_feedback():
+    library_data = request.form
+    save_to_excel(library_data, 'Library Feedback')
+    return redirect('/ambience-feedback')
+
+@app.route('/submit-ambience-feedback', methods=['POST'])
+def submit_ambience_feedback():
+    ambience_data = request.form
+    save_to_excel(ambience_data, 'Ambience Feedback')
+    return redirect('/success')
+
+@app.route('/success')
+def success():
     return render_template('success.html')
 
 if __name__ == '__main__':
