@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Feedback Form</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="college-section">
+            <div class="college-logo1">
+                <img src="static/college logo1.jpg" alt="College Logo1">
+            </div>
+            <div class="college-name">
+                <h1>CSMSS CHH. Shahu College of Engineering</h1>
+            </div>
+            <div class="college-logo2">
+                <img src="static/college logo2.jpg" alt="College Logo2">
+            </div>
+        </div>
+        <h2>Library Feedback Form</h2><hr>
+        <form id="libraryForm" method="POST" action="/submit-library-feedback">
+            <div class="form-group1" style="margin-top: 20px;">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="Name" class="text" placeholder="Enter your full name" required>
+            </div><br>
+            <div class="form-group1">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="Date" required>
+            </div><br>
+            <div class="form-group1">
+                <label for="rollNumber">Roll Number:</label>
+                <input type="text" id="rollNumber" name="Roll Number" class="text" placeholder="Please type in proper format e.g. AI2008" required>
+            </div><br>  
+            <div class="form-group1">
+                <label for="branch">Branch:</label>
+                <select id="branch" name="Branch" required>
+                    <option value="">Select Branch</option>
+                    <option value="AI&DS">Artificial Intelligence & Data Science</option>
+                    <option value="CSE">Computer Science & Engineering</option>
+                    <option value="ECE">Electronics & Communication Engineering</option>
+                    <option value="ME">Mechanical Engineering</option>
+                    <option value="CE">Civil Engineering</option>
+                </select>
+            </div>
+            <br>
+            <div class="form-group1">
+                <label for="year">Year of Study:</label>
+                <select id="year" name="Year" required>
+                    <option value="">Select Year</option>
+                    <option value="1st Year">1st Year</option>
+                    <option value="2nd Year">2nd Year</option>
+                    <option value="3nd Year">3rd Year</option>
+                    <option value="Final Year">Final Year</option>
+                </select>
+            </div>
+            <br><br>
+            <div class="form-group">
+                <label>How to often do you visit the library?</label>
+                <div class="options1">
+                    <label><input type="radio" name="Q" value="Daily"> Daily</label>
+                    <label><input type="radio" name="Q" value="Twice in a Week"> Twice in a Week</label>
+                    <label><input type="radio" name="Q" value="Once in a Week"> Once in a Week</label>
+                    <label><input type="radio" name="Q" value="Once in a Month"> Once in a Month</label>
+                    <label class="other-option"><input type="radio" name="q" id="other-radio">Other</label>
+                    <input type="text" name="q" id="other-text" class="text" placeholder="Specify...">
+                </div>                
+            </div>
+            <br><br><hr>
+            <div class="form-group">
+                <label>Q1: Regarding the college library time (8:30 am to 12:00 midnight) ?</label>
+                <div class="options">
+                    <label><input type="radio" name="Q1: Regarding the college library time (8:30 am to 12:00 midnight) ?" value="Excellent"> Excellent</label>
+                    <label><input type="radio" name="Q1: Regarding the college library time (8:30 am to 12:00 midnight) ?" value="Very Good"> Very Good</label>
+                    <label><input type="radio" name="Q1: Regarding the college library time (8:30 am to 12:00 midnight) ?" value="Good"> Good</label>
+                    <label><input type="radio" name="Q1: Regarding the college library time (8:30 am to 12:00 midnight) ?" value="Satisfactory"> Satisfactory</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q2: Library infrastructure</label>
+                <div class="options">
+                    <label><input type="radio" name="Q2: Library infrastructure" value="Excellent"> Excellent</label>
+                    <label><input type="radio" name="Q2: Library infrastructure" value="Very Good"> Very Good</label>
+                    <label><input type="radio" name="Q2: Library infrastructure" value="Good"> Good</label>
+                    <label><input type="radio" name="Q2: Library infrastructure" value="Satisfactory"> Satisfactory</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q3: The available reading space in the library?</label>
+                <div class="options">
+                    <label><input type="radio" name="Q3: The available reading space in the library?" value="Excellent"> Excellent</label>
+                    <label><input type="radio" name="Q3: The available reading space in the library?" value="Very Good"> Very Good</label>
+                    <label><input type="radio" name="Q3: The available reading space in the library?" value="Good"> Good</label>
+                    <label><input type="radio" name="Q3: The available reading space in the library?" value="Satisfactory"> Satisfactory</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q4: Course books received from the library?</label>
+                <div class="options">
+                    <label><input type="radio" name="Q4: Course books received from the library?" value="Excellent"> Excellent</label>
+                    <label><input type="radio" name="Q4: Course books received from the library?" value="Very Good"> Very Good</label>
+                    <label><input type="radio" name="Q4: Course books received from the library?" value="Good"> Good</label>
+                    <label><input type="radio" name="Q4: Course books received from the library?" value="Satisfactory"> Satisfactory</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q5: Available number of journals/magazines in your branch?</label>
+                <div class="options">
+                    <label><input type="radio" name="Q5: Available number of journals/magazines in your branch?" value="Excellent"> Excellent</label>
+                    <label><input type="radio" name="Q5: Available number of journals/magazines in your branch?" value="Very Good"> Very Good</label>
+                    <label><input type="radio" name="Q5: Available number of journals/magazines in your branch?" value="Good"> Good</label>
+                    <label><input type="radio" name="Q5: Available number of journals/magazines in your branch?" value="Satisfactory"> Satisfactory</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q6: Library services- Such as book circulation, Reference Service, Back volume of journals/ magazines etc.?</label>
+                <div class="options">
+                    <label><input type="radio" name="Q6: Library services- Such as book circulation, Reference Service, Back volume of journals/ magazines etc.?" value="Excellent"> Excellent</label>
+                    <label><input type="radio" name="Q6: Library services- Such as book circulation, Reference Service, Back volume of journals/ magazines etc.?" value="Very Good"> Very Good</label>
+                    <label><input type="radio" name="Q6: Library services- Such as book circulation, Reference Service, Back volume of journals/ magazines etc.?" value="Good"> Good</label>
+                    <label><input type="radio" name="Q6: Library services- Such as book circulation, Reference Service, Back volume of journals/ magazines etc.?" value="Satisfactory"> Satisfactory</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q7: Availability of reprographic facility, Internet facility?</label>
+                <div class="options">
+                    <label><input type="radio" name="Q7: Availability of reprographic facility, Internet facility?" value="Excellent"> Excellent</label>
+                    <label><input type="radio" name="Q7: Availability of reprographic facility, Internet facility?" value="Very Good"> Very Good</label>
+                    <label><input type="radio" name="Q7: Availability of reprographic facility, Internet facility?" value="Good"> Good</label>
+                    <label><input type="radio" name="Q7: Availability of reprographic facility, Internet facility?" value="Satisfactory"> Satisfactory</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q8: Behavior of the library staff?</label>
+                <div class="options">
+                    <label><input type="radio" name="Q8: Behavior of the library staff?" value="Excellent"> Excellent</label>
+                    <label><input type="radio" name="Q8: Behavior of the library staff?" value="Very Good"> Very Good</label>
+                    <label><input type="radio" name="Q8: Behavior of the library staff?" value="Good"> Good</label>
+                    <label><input type="radio" name="Q8: Behavior of the library staff?" value="Satisfactory"> Satisfactory</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q9: Overall facilities provided by library?</label>
+                <div class="options">
+                    <label><input type="radio" name="Q9: Overall facilities provided by library?" value="Excellent"> Excellent</label>
+                    <label><input type="radio" name="Q9: Overall facilities provided by library?" value="Very Good"> Very Good</label>
+                    <label><input type="radio" name="Q9: Overall facilities provided by library?" value="Good"> Good</label>
+                    <label><input type="radio" name="Q9: Overall facilities provided by library?" value="Satisfactory"> Satisfactory</label>
+                </div>
+            </div>
+            <br>
+            <div class="form-group" style="margin-top: 20px;">
+                <label for="suggestions">Q10: Please give your suggestions for any improvement in the library:</label>
+                <input type="text" id="suggestions" name="suggestions" class="text1" placeholder="Specify...">
+            </div>
+
+            <!-- Add more question sets as needed -->
+
+            <button class="submitButton" type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="footer">
+        &copy; 2024 Rupesh & Noman (AI & DS). All rights reserved.
+    </div>
+    <!--<script src="script.js"></script>-->
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambience Feedback Form</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="college-section">
+            <div class="college-logo1">
+                <img src="static/college logo1.jpg" alt="College Logo1">
+            </div>
+            <div class="college-name">
+                <h1>CSMSS CHH. Shahu College of Engineering</h1>
+            </div>
+            <div class="college-logo2">
+                <img src="static/college logo2.jpg" alt="College Logo2">
+            </div>
+        </div>
+        <h2>Ambience /  Facilities Feedback Form</h2><hr>
+        <form id="ambienceForm" method="POST" action="/submit-ambience-feedback">
+            <div class="form-group1">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="Date" required>
+            </div><br> 
+            <div class="form-group1">
+                <label for="branch">Branch:</label>
+                <select id="branch" name="Branch" required>
+                    <option value="">Select Branch</option>
+                    <option value="AI&DS">Artificial Intelligence & Data Science</option>
+                    <option value="CSE">Computer Science & Engineering</option>
+                    <option value="ECE">Electronics & Communication Engineering</option>
+                    <option value="ME">Mechanical Engineering</option>
+                    <option value="CE">Civil Engineering</option>
+                </select>
+            </div><br>
+            <div class="form-group1">
+                <label for="year">Year of Study:</label>
+                <select id="year" name="Year" required>
+                    <option value="">Select Year</option>
+                    <option value="1st Year">1st Year</option>
+                    <option value="2nd Year">2nd Year</option>
+                    <option value="3nd Year">3rd Year</option>
+                    <option value="Final Year">Final Year</option>
+                </select>
+            </div>
+            <br><hr>
+            <div class="form-group">
+                <label>Q1: Availability and maintenance of green campus.</label>
+                <div class="options">
+                    <label><input type="radio" name="Q1" value="Strongly Agree"> Strongly Agree</label>
+                    <label><input type="radio" name="Q1" value="Agree"> Agree</label>
+                    <label><input type="radio" name="Q1" value="Disagree"> Disagree</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q2: Availability of RO drinking water and water cooling systems.</label>
+                <div class="options">
+                    <label><input type="radio" name="Q2" value="Strongly Agree"> Strongly Agree</label>
+                    <label><input type="radio" name="Q2" value="Agree"> Agree</label>
+                    <label><input type="radio" name="Q2" value="Disagree"> Disagree</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q3: Availability of well ventilated and shiny classrooms/ laboratory.</label>
+                <div class="options">
+                    <label><input type="radio" name="Q3" value="Strongly Agree"> Strongly Agree</label>
+                    <label><input type="radio" name="Q3" value="Agree"> Agree</label>
+                    <label><input type="radio" name="Q3" value="Disagree"> Disagree</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q4: Availability of Wi-Fi & CCTV camera in classroom & campus.</label>
+                <div class="options">
+                    <label><input type="radio" name="Q4" value="Strongly Agree"> Strongly Agree</label>
+                    <label><input type="radio" name="Q4" value="Agree"> Agree</label>
+                    <label><input type="radio" name="Q4" value="Disagree"> Disagree</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q5: Sufficient and hygienic sanitary arrangement for students. </label>
+                <div class="options">
+                    <label><input type="radio" name="Q5" value="Strongly Agree"> Strongly Agree</label>
+                    <label><input type="radio" name="Q5" value="Agree"> Agree</label>
+                    <label><input type="radio" name="Q5" value="Disagree"> Disagree</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q6: Availability of fire safety devices in campus.</label>
+                <div class="options">
+                    <label><input type="radio" name="Q6" value="Strongly Agree"> Strongly Agree</label>
+                    <label><input type="radio" name="Q6" value="Agree"> Agree</label>
+                    <label><input type="radio" name="Q6" value="Disagree"> Disagree</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q7: Availability of ramp and lift for Divyang person.</label>
+                <div class="options">
+                    <label><input type="radio" name="Q7" value="Strongly Agree"> Strongly Agree</label>
+                    <label><input type="radio" name="Q7" value="Agree"> Agree</label>
+                    <label><input type="radio" name="Q7" value="Disagree"> Disagree</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q8: Availability of Canteen, Bank, Post office, first-aid in campus.</label>
+                <div class="options">
+                    <label><input type="radio" name="Q8" value="Strongly Agree"> Strongly Agree</label>
+                    <label><input type="radio" name="Q8" value="Agree"> Agree</label>
+                    <label><input type="radio" name="Q8" value="Disagree"> Disagree</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q9: Availability of well-maintained playground, Gym.</label>
+                <div class="options">
+                    <label><input type="radio" name="Q9" value="Strongly Agree"> Strongly Agree</label>
+                    <label><input type="radio" name="Q9" value="Agree"> Agree</label>
+                    <label><input type="radio" name="Q9" value="Disagree"> Disagree</label>
+                </div>
+            </div><hr>
+            <div class="form-group">
+                <label>Q10: Availability of well-maintained separate boys and girls hostels.</label>
+                <div class="options">
+                    <label><input type="radio" name="Q10" value="Strongly Agree"> Strongly Agree</label>
+                    <label><input type="radio" name="Q10" value="Agree"> Agree</label>
+                    <label><input type="radio" name="Q10" value="Disagree"> Disagree</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group" style="margin-top: 20px;">
+                <label for="suggestions">Suggestions if any:</label>
+                <input type="text" id="suggestions" name="suggestions" class="text1" placeholder="Specify...">
+            </div>
+
+            <!-- Add more question sets as needed -->
+
+            <button class="submitButton" type="submit" >Submit</button>
+        </form>
+    </div>
+    <div class="footer">
+        &copy; 2024 Rupesh & Noman (AI & DS). All rights reserved.
+    </div>
+    <!-- <script src="script.js"></script> -->
+</body>
+</html>
