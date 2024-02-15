@@ -1,6 +1,6 @@
 import os
 import openpyxl
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
@@ -41,6 +41,24 @@ def save_to_excel(data, sheet_name):
     # Save the workbook
     wb.save('feedback_data.xlsx')
 
+def save_to_excel_sub(data, sheet_name):
+    try:
+        wb = openpyxl.load_workbook('feedback_data.xlsx')
+    except FileNotFoundError:
+        wb = openpyxl.Workbook()
+
+    if sheet_name in wb.sheetnames:
+        sheet = wb[sheet_name]
+    else:
+        sheet = wb.create_sheet(title=sheet_name)
+
+    if sheet.max_row == 0:
+        sheet.append(['Subject'] + list(data.keys()))
+
+    sheet.append([session['current_subject']] + list(data.values()))
+
+    wb.save('feedback_data.xlsx')
+
 
 @app.route('/')
 def index():
@@ -71,15 +89,15 @@ def submit_library_feedback():
     save_to_excel(library_data, 'Library Feedback')
     return redirect('/ambience-feedback')
 
+@app.route('/success')
+def success():
+    return render_template('success.html')
+
 @app.route('/submit-ambience-feedback', methods=['POST'])
 def submit_ambience_feedback():
     ambience_data = request.form
     save_to_excel(ambience_data, 'Ambience Feedback')
     return redirect('/success')
-
-@app.route('/success')
-def success():
-    return render_template('success.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
