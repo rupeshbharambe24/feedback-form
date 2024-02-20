@@ -14,6 +14,15 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.scontainer {
+    max-width: 600px;
+    margin: 160px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .form-group .options {
     display: flex;
     flex-direction: row;
@@ -55,6 +64,20 @@ body {
 }
 
 select#branch {
+    width: 70%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: right 8px top 50%;
+    background-size: 16px auto;
+    margin: 0 auto;
+    display: block;
+}
+
+select#semester {
     width: 70%;
     padding: 8px;
     margin-bottom: 20px;
@@ -115,6 +138,24 @@ input[type="date"] {
     background-color: rgb(3, 201, 112);
 }
 
+.startButton {
+    display: block;
+    margin: 0 auto;
+    background-color: #00a44d;
+    color: #fff;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.startButton:hover {
+    background-color: rgb(3, 201, 112);
+}
+
 h1,h2,h3 {
     text-align: center;
     margin-bottom: 20px;    
@@ -130,6 +171,7 @@ label {
     margin-bottom: 10px;
     font-weight: bold;
 }
+
 
 .form-group1 label {
     margin-bottom: 10px;
