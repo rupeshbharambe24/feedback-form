@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M-3 Feedback Form</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="college-section">
+            <div class="college-logo1">
+                <img src="static/college logo1.jpg" alt="College Logo1">
+            </div>
+            <div class="college-name">
+                <h1>CSMSS CHH. Shahu College of Engineering</h1>
+            </div>
+            <div class="college-logo2">
+                <img src="static/college logo2.jpg" alt="College Logo2">
+            </div>
+        </div>
+        <h2>Faculty Performance Feedback Form</h2><hr>
+        <form id="m3Form" method="POST" action="/submit-m3-feedback">
+            <h3>Subject: Engineering Mathematics - III (M-3) </h3>
+            <h3>Teacher: Prof. J.U. Badak</h3><hr>
+            <div class="form-group">
+                <label>Q1: How are the classes engaged?</label>
+                <div class="options">
+                    <label><input type="radio" name="Q1: How are the classes engaged?" value="Irregularly"> Irregularly</label>
+                    <label><input type="radio" name="Q1: How are the classes engaged?" value="Sometime Irregular"> Sometime Irregular</label>
+                    <label><input type="radio" name="Q1: How are the classes engaged?" value="Generally Regular"> Generally Regular</label>
+                    <label><input type="radio" name="Q1: How are the classes engaged?" value="Always Regular"> Always Regular</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q2: Are you satisfied with the progress of the syllabus?</label>
+                <div class="options">
+                    <label><input type="radio" name="Q2: Are you satisfied with the progress of the syllabus?" value="Totally Unsatisfied"> Totally Unsatisfied</label>
+                    <label><input type="radio" name="Q2: Are you satisfied with the progress of the syllabus?" value="Satisfied to some extent"> Satisfied to some extent</label>
+                    <label><input type="radio" name="Q2: Are you satisfied with the progress of the syllabus?" value="Satisfied"> Satisfied</label>
+                    <label><input type="radio" name="Q2: Are you satisfied with the progress of the syllabus?" value="Totally Satisfied"> Totally Satisfied</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q3: Do you understand the subject?</label>
+                <div class="options">
+                    <label><input type="radio" name="Q3: Do you understand the subject?" value="Not at all"> Not at all</label>
+                    <label><input type="radio" name="Q3: Do you understand the subject?" value="To some extent"> To some extent</label>
+                    <label><input type="radio" name="Q3: Do you understand the subject?" value="Good enough"> Good enough</label>
+                    <label><input type="radio" name="Q3: Do you understand the subject?" value="In all respect"> In all respect</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q4: Is the teacher capable of controlling the class?</label>
+                <div class="options">
+                    <label><input type="radio" name="Q4: Is the teacher capable of controlling the class?" value="Poor Control"> Poor Control</label>
+                    <label><input type="radio" name="Q4: Is the teacher capable of controlling the class?" value="Fair Control"> Fair Control</label>
+                    <label><input type="radio" name="Q4: Is the teacher capable of controlling the class?" value="Adequate Control"> Adequate Control</label>
+                    <label><input type="radio" name="Q4: Is the teacher capable of controlling the class?" value="Good Control"> Good Control</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q5: Does the teacher involve the students during lectures?</label>
+                <div class="options">
+                    <label><input type="radio" name="Q5: Does the teacher involve the students during lectures?" value="Never"> Never</label>
+                    <label><input type="radio" name="Q5: Does the teacher involve the students during lectures?" value="Rarely"> Rarely</label>
+                    <label><input type="radio" name="Q5: Does the teacher involve the students during lectures?" value="Usually"> Usually</label>
+                    <label><input type="radio" name="Q5: Does the teacher involve the students during lectures?" value="Always"> Always</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q6: Is your teacher proficient in English?</label>
+                <div class="options">
+                    <label><input type="radio" name="Q6: Is your teacher proficient in English?" value="Poor"> Poor</label>
+                    <label><input type="radio" name="Q6: Is your teacher proficient in English?" value="Average"> Average</label>
+                    <label><input type="radio" name="Q6: Is your teacher proficient in English?" value="Good"> Good</label>
+                    <label><input type="radio" name="Q6: Is your teacher proficient in English?" value="Excellent"> Excellent</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q7: Is the teacher audible?</label>
+                <div class="options">
+                    <label><input type="radio" name="Q7: Is the teacher audible?" value="Poor"> Poor</label>
+                    <label><input type="radio" name="Q7: Is the teacher audible?" value="Average"> Average</label>
+                    <label><input type="radio" name="Q7: Is the teacher audible?" value="Good"> Good</label>
+                    <label><input type="radio" name="Q7: Is the teacher audible?" value="Excellent"> Excellent</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q8: How is his teaching generally?</label>
+                <div class="options">
+                    <label><input type="radio" name="Q8: How is his teaching generally?" value="Boring"> Boring</label>
+                    <label><input type="radio" name="Q8: How is his teaching generally?" value="Monotones"> Monotones</label>
+                    <label><input type="radio" name="Q8: How is his teaching generally?" value="Good"> Good</label>
+                    <label><input type="radio" name="Q8: How is his teaching generally?" value="Interesting"> Interesting</label>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Q9: How do you rate the overall performance of your teacher?</label>
+                <div class="options">
+                    <label><input type="radio" name="Q9: How do you rate the overall performance of your teacher?" value="Poor"> Poor</label>
+                    <label><input type="radio" name="Q9: How do you rate the overall performance of your teacher?" value="Fair"> Fair</label>
+                    <label><input type="radio" name="Q9: How do you rate the overall performance of your teacher?" value="Good"> Good</label>
+                    <label><input type="radio" name="Q9: How do you rate the overall performance of your teacher?" value="Excellent"> Excellent</label>
+                </div>
+            </div>
+            <br><hr>
+            <h3 style="font-weight: bold;">Remark:</h3>
+            <div class="form-group" style="margin-top: 20px;">
+                <label for="suggestions">Q1: What are your specific expectations from your teacher for the improvement of the results in subject?</label>
+                <input type="text" id="expectations" name="Q1: What are your specific expectations from your teacher for the improvement of the results in subject?" class="text1" placeholder="Specify...">
+            </div>
+            <div class="form-group" style="margin-top: 20px; margin-bottom: 40px;">
+                <label for="suggestions">Q2: Any additional comments on the performance of your teacher.</label>
+                <input type="text" id="comments" name="Q2: Any additional comments on the performance of your teacher." class="text1" placeholder="Specify...">
+            </div>
+
+            <!-- Add more question sets as needed -->
+
+            <button class="submitButton" type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="footer">
+        &copy; 2024 Rupesh & Noman (AI & DS). All rights reserved.
+    </div>
+    <!--<script src="script.js"></script>-->
+</body>
+</html>
