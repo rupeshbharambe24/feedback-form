@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Performance Feedback Form</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="college-section">
+            <div class="college-logo1">
+                <img src="static/college logo1.jpg" alt="College Logo1">
+            </div>
+            <div class="college-name">
+                <h1>CSMSS CHH. Shahu College of Engineering</h1>
+            </div>
+            <div class="college-logo2">
+                <img src="static/college logo2.jpg" alt="College Logo2">
+            </div>
+        </div>
+        <h2>Faculty Performance Feedback Form</h2><hr>
+        <form id="facultyForm" method="POST" action="/submit-faculty-feedback">
+            <div class="form-group1" style="margin-top: 20px;">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="Date" required>
+            </div><br>
+            <div class="form-group1">
+                <label for="branch">Branch:</label>
+                <select id="branch" name="branch" required>
+                    <option value="">Select Branch</option>
+                    <option value="AI&DS">Artificial Intelligence & Data Science</option>
+                    <option value="CSE">Computer Science & Engineering</option>
+                    <option value="ECE">Electronics & Communication Engineering</option>
+                    <option value="ME">Mechanical Engineering</option>
+                    <option value="CE">Civil Engineering</option>
+                </select>
+            </div>
+            <br>
+            <div class="form-group1" style="margin-bottom: 40px;">
+                <label for="semester">Semester of Study:</label>
+                <select id="semester" name="semester" required>
+                    <option value="">Select Semester</option>
+                    <option value="1">1st Semester</option>
+                    <option value="2">2nd Semester</option>
+                    <option value="3">3rd Semester</option>
+                    <option value="4">4th Semester</option>
+                    <option value="5">5th Semester</option>
+                    <option value="6">6th Semester</option>
+                    <option value="7">7th Semester</option>
+                    <option value="8">8th Semester</option>
+                </select>
+            </div>
+            <button class="submitButton" type="submit" >Next</button>
+        </form>
+    </div>
+    <div class="footer">
+        &copy; 2024 Rupesh & Noman (AI & DS). All rights reserved.
+    </div>
+</body>
+</html>
